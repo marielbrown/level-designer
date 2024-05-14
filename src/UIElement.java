@@ -1,8 +1,15 @@
 import processing.core.PApplet;
+import processing.core.PVector;
 
-public interface UIElement {
+public abstract class UIElement {
 
-    boolean isMouseOver(int mouseX, int mouseY);
+    protected float width, height;
+    protected PVector position = new PVector(); // top left of element
 
-    void render(PApplet app);
+    boolean isMouseOver(int mouseX, int mouseY){
+        return mouseX > position.x && mouseX < position.x + width &&
+                mouseY > position.y && mouseY < position.y + height;
+    }
+
+    abstract void render(PApplet app);
 }
