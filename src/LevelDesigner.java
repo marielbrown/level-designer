@@ -1,6 +1,9 @@
 import processing.core.PApplet;
 
 public class LevelDesigner extends PApplet {
+
+    Canvas canvas;
+
     public static void main(String[] args){
         String[] processingArgs = {"Level Designer"};
         LevelDesigner app = new LevelDesigner();
@@ -11,13 +14,14 @@ public class LevelDesigner extends PApplet {
     public void settings(){
         // runs once before the processing sketch has been set up
 
-        size(1920, 1080); // set initial window size
+        size(1920 - 70, 1080 - 70); // set initial window size
         noSmooth(); // turns off interpolation, must be run after size
     }
 
     @Override
     public void setup(){
         // runs once after the processing sketch has been set up
+        canvas = new Canvas(this);
     }
 
     @Override
@@ -32,6 +36,7 @@ public class LevelDesigner extends PApplet {
     }
 
     private void render(){
-        //stub
+        background(50, 50, 50);
+        canvas.render(this);
     }
 }
