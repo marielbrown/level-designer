@@ -1,6 +1,4 @@
 import processing.core.PApplet;
-import processing.core.PVector;
-
 public class Canvas extends UIElement {
 
     Canvas(PApplet app){
