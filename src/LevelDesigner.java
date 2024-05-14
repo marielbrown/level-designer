@@ -6,6 +6,7 @@ public class LevelDesigner extends PApplet {
 
     Canvas canvas;
     Toolbar toolbar;
+    Sidebar sidebar;
 
     public static void main(String[] args){
         String[] processingArgs = {"Level Designer"};
@@ -26,6 +27,7 @@ public class LevelDesigner extends PApplet {
         // runs once after the processing sketch has been set up
         canvas = new Canvas(this);
         toolbar = new Toolbar(this);
+        sidebar= new Sidebar(this);
     }
 
     @Override
@@ -43,5 +45,6 @@ public class LevelDesigner extends PApplet {
         background(50, 50, 50);
         canvas.render(this);
         toolbar.render(this);
+        sidebar.render(this);
     }
 }
