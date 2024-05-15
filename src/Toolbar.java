@@ -2,16 +2,17 @@ import processing.core.PApplet;
 
 public class Toolbar extends UIElement{
 
-    Button[] buttons;
+    public Button[] buttons;
+    EventListener buttonHandler;
 
-    Toolbar(PApplet app){
+    Toolbar(PApplet app, EventListener buttonHandler){
         width = app.width / 1.25f;   // 3/4 size of screen
         height = 35;
         position.x = 0;
         position.y = 0;
 
-        buttons = new Button[1];
-        buttons[0] = new Button(5, 5, 60, 25, "Save");
+        this.buttonHandler = buttonHandler;
+        buildButtons();
     }
 
     @Override
@@ -22,6 +23,18 @@ public class Toolbar extends UIElement{
 
         for (Button button: buttons){
             button.render(app);
+        }
+    }
+
+    private void buildButtons(){
+        buttons = new Button[3];
+        String[] labels = {"New", "Load", "Save"};
+        int offset = 5;
+        int width = 60;
+
+        for (int i = 0; i < buttons.length; i++) {
+            buttons[i] = new Button(i * width + offset, 5, width, 25, labels[i]);
+            buttons[i].addEventListener(buttonHandler);
         }
     }
 }

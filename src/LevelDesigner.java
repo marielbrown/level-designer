@@ -7,6 +7,7 @@ public class LevelDesigner extends PApplet {
     Canvas canvas;
     Toolbar toolbar;
     Sidebar sidebar;
+    ButtonHandler buttonHandler = new ButtonHandler();
 
     public static void main(String[] args){
         String[] processingArgs = {"Level Designer"};
@@ -26,8 +27,8 @@ public class LevelDesigner extends PApplet {
     public void setup(){
         // runs once after the processing sketch has been set up
         canvas = new Canvas(this);
-        toolbar = new Toolbar(this);
-        sidebar= new Sidebar(this);
+        toolbar = new Toolbar(this, buttonHandler);
+        sidebar = new Sidebar(this);
     }
 
     @Override
@@ -39,6 +40,7 @@ public class LevelDesigner extends PApplet {
 
     private void update(){
         //stub
+        print(buttonHandler.getClickCount());
     }
 
     private void render(){
@@ -46,5 +48,14 @@ public class LevelDesigner extends PApplet {
         canvas.render(this);
         toolbar.render(this);
         sidebar.render(this);
+    }
+
+    @Override
+    public void mouseClicked() {
+        for (Button button: toolbar.buttons){
+            if(button.isMouseOver(mouseX, mouseY)){
+                button.click();
+            }
+        }
     }
 }
