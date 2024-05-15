@@ -33,7 +33,7 @@ public class Toolbar extends UIElement{
         int width = 60;
 
         for (int i = 0; i < buttons.length; i++) {
-            buttons[i] = new Button(i * width + offset, 5, width, 25, labels[i]);
+            buttons[i] = new Button(i, i * width + offset, 5, width, 25, labels[i]);
             buttons[i].addEventListener(buttonHandler);
         }
     }

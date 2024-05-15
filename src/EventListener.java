@@ -1,3 +1,3 @@
 public interface EventListener {
-    void actionPerformed();
+    void actionPerformed(int subjectID);
 }

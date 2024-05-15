@@ -1,12 +1,16 @@
 
 public class ButtonHandler implements EventListener {
-    private int count = 0;
-
-    public int getClickCount() { return count; }
-
     @Override
-    public void actionPerformed() {
-        count += 1;
-        System.out.println("Click number "+ count);
+    public void actionPerformed(int subjectID) {
+        switch (subjectID){
+            case Constants.NEW_BUTTON:
+                System.out.println("New clicked");
+                break;
+            case Constants.LOAD_BUTTON:
+                System.out.println("Load clicked");
+                break;
+            case Constants.SAVE_BUTTON:
+                System.out.println("Save clicked");
+        }
     }
 }

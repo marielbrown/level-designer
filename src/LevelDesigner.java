@@ -40,7 +40,6 @@ public class LevelDesigner extends PApplet {
 
     private void update(){
         //stub
-        print(buttonHandler.getClickCount());
     }
 
     private void render(){

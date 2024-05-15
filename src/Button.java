@@ -4,11 +4,13 @@ public class Button extends UIElement{
     private String text;
     private int textSize = 18;
     private EventListener listener;
+    private int ID;
 
-    Button(float x, float y, int width, int height, String labelText){
+    Button(int ID, float x, float y, int width, int height, String labelText){
         position.x = x;
         position.y = y;
 
+        this.ID = ID;
         this.width = width;
         this.height = height;
 
@@ -31,7 +33,7 @@ public class Button extends UIElement{
     }
 
     public void click(){
-        listener.actionPerformed();
+        listener.actionPerformed(ID);
     }
 
 }
